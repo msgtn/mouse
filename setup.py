@@ -4,12 +4,14 @@ Usage instructions:
 - If you are installing: `python setup.py install`
 - If you are developing: `python setup.py sdist --format=zip bdist_wheel --universal bdist_wininst && twine check dist/*`
 """
-import mouse
+# import mouse
+import sys
 
+print(sys.executable)
 from setuptools import setup
 setup(
     name='mouse',
-    version=mouse.version,
+    # version=mouse.version,
     author='BoppreH',
     author_email='boppreh@gmail.com',
     packages=['mouse'],
@@ -21,7 +23,7 @@ setup(
 
     # Wheel creation breaks with Windows newlines.
     # https://github.com/pypa/setuptools/issues/1126
-    long_description=mouse.__doc__.replace('\r\n', '\n'),
+    # long_description=mouse.__doc__.replace('\r\n', '\n'),
     long_description_content_type='text/markdown',
 
     install_requires=["pyobjc-framework-Quartz; sys_platform=='darwin'"], # OSX-specific dependency
